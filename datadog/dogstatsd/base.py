@@ -626,6 +626,7 @@ class DogStatsd(object):
     @classmethod
     def _get_udp_socket(cls, host, port, timeout):
         log.debug("Connecting to %s:%s", host, port)
+        log.debug("here i am")
         addrinfo = socket.getaddrinfo(host, port, socket.AF_INET6, socket.SOCK_DGRAM)
         # Override gai.conf order for backwrads compatibility: prefer
         # v4, so that a v4-only service on hosts with both addresses
