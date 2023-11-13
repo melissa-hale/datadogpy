@@ -629,7 +629,7 @@ class DogStatsd(object):
         log.warning("here i am")
         log.warning("now i will try the thing below!!!!!")
      
-        addrinfo = socket.getaddrinfo(host, port, socket.AF_INET6, socket.SOCK_DGRAM)
+        addrinfo = socket.getaddrinfo(host, port, 0, socket.SOCK_DGRAM)
         log.warning(addrinfo)
         log.warning('should have logged the addrinfor above')
         # Override gai.conf order for backwrads compatibility: prefer
