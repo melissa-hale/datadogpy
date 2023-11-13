@@ -1000,9 +1000,11 @@ class DogStatsd(object):
     def _xmit_packet(self, packet, is_telemetry):
         try:
             if is_telemetry and self._dedicated_telemetry_destination():
+                log.warning("this is the true thing")
                 mysocket = self.telemetry_socket or self.get_socket(telemetry=True)
             else:
                 # If set, use socket directly
+                log.warning("in this case, this is")
                 mysocket = self.socket or self.get_socket()
 
             mysocket.send(packet.encode(self.encoding))
