@@ -644,12 +644,12 @@ class DogStatsd(object):
                 sock.settimeout(timeout)
                 cls._ensure_min_send_buffer_size(sock)
                 sock.connect(addr)
-                log.debug("Connected to: %s", addr)
+                log.warning("Connected to: %s", addr)
                 return sock
             except Exception as e:
                 if sock is not None:
                     sock.close()
-                log.debug("Failed to connect to %s: %s", addr, e)
+                log.warning("Failed to connect to %s: %s", addr, e)
                 if i < lastaddr:
                     continue
                 raise e
