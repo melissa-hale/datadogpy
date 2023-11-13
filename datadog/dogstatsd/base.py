@@ -627,7 +627,7 @@ class DogStatsd(object):
     def _get_udp_socket(cls, host, port, timeout):
         log.warning("Connecting to %s:%s", host, port)
         log.warning("here i am")
-        log.warning("now i will try the thing below")
+        log.warning("now i will try the thing below!!!!!")
         addrinfo = socket.getaddrinfo(host, port, socket.AF_INET6, socket.SOCK_DGRAM)
         log.warning(addrinfo)
         log.warning('should have logged the addrinfor above')
