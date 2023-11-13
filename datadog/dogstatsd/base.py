@@ -628,6 +628,7 @@ class DogStatsd(object):
         log.warning("Connecting to %s:%s", host, port)
         log.warning("here i am")
         log.warning("now i will try the thing below!!!!!")
+        log.warning("i am logging whatever the cls is", cls)
         addrinfo = socket.getaddrinfo(host, port, socket.AF_INET6, socket.SOCK_DGRAM)
         log.warning(addrinfo)
         log.warning('should have logged the addrinfor above')
@@ -1007,6 +1008,7 @@ class DogStatsd(object):
                 log.warning("in this case, this is")
                 mysocket = self.socket or self.get_socket()
 
+            log.warning("printing the packet", packet.encode(self.encoding))
             mysocket.send(packet.encode(self.encoding))
 
             if not is_telemetry and self._telemetry:
