@@ -627,12 +627,16 @@ class DogStatsd(object):
     def _get_udp_socket(cls, host, port, timeout):
         log.warning("Connecting to %s:%s", host, port)
         log.warning("here i am")
+        log.warning("now i will try the thing below")
         addrinfo = socket.getaddrinfo(host, port, socket.AF_INET6, socket.SOCK_DGRAM)
+        log.warning(addrinfo)
+        log.warning('should have logged the addrinfor above')
         # Override gai.conf order for backwrads compatibility: prefer
         # v4, so that a v4-only service on hosts with both addresses
         # still works.
         addrinfo.sort(key=lambda v: v[0] == socket.AF_INET, reverse=True)
         lastaddr = len(addrinfo) - 1
+        log.warning(lastaddr)
         for i, (af, ty, proto, _, addr) in enumerate(addrinfo):
             sock = None
             try:
