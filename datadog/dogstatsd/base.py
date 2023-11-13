@@ -625,8 +625,8 @@ class DogStatsd(object):
 
     @classmethod
     def _get_udp_socket(cls, host, port, timeout):
-        log.debug("Connecting to %s:%s", host, port)
-        log.debug("here i am")
+        log.warning("Connecting to %s:%s", host, port)
+        log.warning("here i am")
         addrinfo = socket.getaddrinfo(host, port, socket.AF_INET6, socket.SOCK_DGRAM)
         # Override gai.conf order for backwrads compatibility: prefer
         # v4, so that a v4-only service on hosts with both addresses
@@ -1013,7 +1013,7 @@ class DogStatsd(object):
             pass
         except (socket.herror, socket.gaierror) as socket_err:
             log.warning(
-                "Error submitting packet: %s, dropping the packet and closing the socket",
+                "Error submitting packet: %s, dropping the packet and closing the socket :boo",
                 socket_err,
             )
             self.close_socket()
@@ -1029,7 +1029,7 @@ class DogStatsd(object):
                     socket_err)
             else:
                 log.warning(
-                    "Error submitting packet: %s, dropping the packet and closing the socket",
+                    "Error submitting packet: %s, dropping the packet and closing the socket :bleh",
                     socket_err,
                 )
                 self.close_socket()
